@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android's network-security-config matches host NAMES only; it cannot express
+  CIDR ranges such as 192.168.0.0/16, 10.0.0.0/8 or 100.64.0.0/10.
+  So the platform-level rule must permit cleartext, and the app enforces the
+  real restriction itself: ShopApi.kt blocks any http:// request whose host is
+  not a 192.168.x.x, 10.x.x.x or Tailscale 100.64-127.x.x address.
+  https:// is always allowed and verified against system CAs.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
