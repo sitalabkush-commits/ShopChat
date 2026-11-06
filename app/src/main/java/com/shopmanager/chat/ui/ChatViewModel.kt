@@ -48,7 +48,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
         showSetup = false
     }
 
-    fun setVoiceLang(l: VoiceLang) {
+    fun selectVoiceLang(l: VoiceLang) {
         voiceLang = l
         store.voiceLang = l.name
     }
