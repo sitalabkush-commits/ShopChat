@@ -168,7 +168,7 @@ fun ChatScreen(vm: ChatViewModel, onOpenSettings: () -> Unit) {
                 VoiceLang.values().forEach { l ->
                     FilterChip(
                         selected = vm.voiceLang == l,
-                        onClick = { vm.setVoiceLang(l) },
+                        onClick = { vm.selectVoiceLang(l) },
                         label = { Text(l.label) }
                     )
                 }
